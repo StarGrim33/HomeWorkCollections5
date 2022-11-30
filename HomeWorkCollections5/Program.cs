@@ -9,47 +9,41 @@
 
             List<string> unitedCollection = new();
 
-            ShowArrays(firstArray, secondArray);
+            ShowArrays(firstArray);
+            ShowArrays(secondArray);
 
+            Console.WriteLine("\nНажмите любую кнопку для объединения массивов: ");
             Console.ReadKey();
-            UniteArraysToCollection(firstArray, secondArray, unitedCollection);
+
+            UniteArraysToCollection(unitedCollection,firstArray);
+            UniteArraysToCollection(unitedCollection, secondArray);
             ShowList(unitedCollection);
         }
 
-        static void ShowArrays(string[] firstArray, string[] secondArray)
+        static void ShowArrays(string[] stringArray)
         {
-            foreach (string itemInFirstArray in firstArray)
+
+            foreach (string itemInFirstArray in stringArray)
             {
                 Console.Write(itemInFirstArray + ",");
             }
-
             Console.Write("\n");
-
-            foreach (string itemInSecondArray in secondArray)
-            {
-                Console.Write(itemInSecondArray + ",");
-            }
-
-            Console.WriteLine("\nНажмите любую кнопку для объединения массивов: ");
         }
 
-        static void UniteArraysToCollection(string[] firstArray, string[] secondArray, List<string> unitedCollection)
+        static void UniteArraysToCollection(List<string> unitedCollection, string[] stringArray)
         {
-            loop:
-            foreach (var item in firstArray)
+
+            foreach (var item in stringArray)
             {
 
                 if(unitedCollection.Contains(item))
                 {
                     continue;
                 }
-                else unitedCollection.Add(item);
-            }
-
-            if(firstArray != secondArray)
-            {
-                firstArray = secondArray;
-                goto loop;
+                else
+                {
+                    unitedCollection.Add(item);
+                }
             }
         }
 
