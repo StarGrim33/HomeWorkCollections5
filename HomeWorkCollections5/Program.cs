@@ -34,7 +34,7 @@
         {
             foreach (string item in stringArray)
             {
-                if(!unitedCollection.Contains(item))
+                if(unitedCollection.Contains(item) == false)
                 {
                     unitedCollection.Add(item);
                 }
@@ -45,7 +45,7 @@
         {
             unitedCollection.Sort();
 
-            foreach (var item in unitedCollection)
+            foreach (string item in unitedCollection)
             {
                 Console.Write(item + ",");
             }
